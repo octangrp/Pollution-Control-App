@@ -34,9 +34,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
+                android:fontFamily="@font/nunito"
                 android:paddingTop="20dp"
                 android:paddingBottom="20dp"
-                android:fontFamily="@font/nunito"
                 android:text="@string/weather_forecast"
                 android:textColor="@android:color/white"
                 android:textSize="23sp" />
@@ -64,7 +64,11 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        app:itemIconTint="@android:color/black"
+        android:background="@android:color/white"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main2"
+        app:itemTextColor="@android:color/black"
+        app:itemTextAppearance="@style/ComfortaaBoldTextViewStyle"
         app:menu="@menu/activity_main2_drawer" />
 </android.support.v4.widget.DrawerLayout>

@@ -19,4 +19,12 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
     <string name="hamburger_menu">Hamburger menu</string>
+    <string name="natural_forest">Natural forest</string>
+    <string name="residential_non_areas"><![CDATA[Residential & non areas]]></string>
+    <string name="wet_lands">Wet lands</string>
+    <string name="protected_non_areas"><![CDATA[Protected & non areas]]></string>
+    <string name="fight_climate_change">Fight climate change</string>
+    <string name="parks">Parks</string>
+    <string name="faq">FAQ</string>
+    <string name="settings">Settings</string>
 </resources>
