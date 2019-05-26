@@ -10,7 +10,7 @@ class Activity(var name: String, var icon: Drawable?, var speed: Double, var tem
     }
 
     fun temperatureString(): String {
-        return temperature.roundToInt().toString() + "\u2103"
+        return temperature.roundToInt().toString() + " \u00B0" + "C"
     }
 
 }

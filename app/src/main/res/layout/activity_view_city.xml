@@ -11,15 +11,13 @@
     <include
         layout="@layout/app_bar_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp" />
+        android:layout_height="wrap_content" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingStart="30dp"
-        android:paddingTop="10dp"
         android:paddingEnd="30dp"
         android:paddingBottom="10dp">
 
@@ -27,7 +25,9 @@
             android:id="@+id/city_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:fontFamily="@font/comfortaa_bold"
+            android:lineSpacingExtra="0dp"
             android:textColor="@android:color/white"
             android:textSize="25sp"
             tools:text="Kigali" />
@@ -41,7 +41,7 @@
             <ImageView
                 android:id="@+id/weather_gauge"
                 android:layout_width="wrap_content"
-                android:layout_height="200dp"
+                android:layout_height="180dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="0dp"
                 android:layout_marginBottom="0dp"
@@ -60,7 +60,6 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/nunito"
-                tools:text="Heavy"
                 android:textColor="@android:color/white"
                 android:textSize="30sp"
                 app:layout_constraintBottom_toBottomOf="@+id/weather_gauge"
@@ -68,13 +67,45 @@
                 app:layout_constraintHorizontal_bias="0.484"
                 app:layout_constraintStart_toStartOf="@+id/weather_gauge"
                 app:layout_constraintTop_toTopOf="@+id/weather_gauge"
-                app:layout_constraintVertical_bias="0.809" />
+                app:layout_constraintVertical_bias="0.936"
+                tools:text="Heavy" />
 
         </android.support.constraint.ConstraintLayout>
 
         <include
             layout="@layout/weather_layout"
             android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:layout_height="wrap_content" />
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/chart"
+            android:layout_width="match_parent"
+            android:layout_height="150dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/paqi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:textColor="@android:color/white"
+                android:layout_weight="1"
+                android:fontFamily="@font/comfortaa_bold"
+                android:textAlignment="viewEnd"
+                android:text="20"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:paddingLeft="5dp"
+                android:fontFamily="@font/comfortaa_bold"
+                android:textAlignment="viewEnd"
+                android:text="P.A.Q.I"/>
+        </LinearLayout>
     </LinearLayout>
+
 </LinearLayout>

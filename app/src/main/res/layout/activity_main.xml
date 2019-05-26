@@ -8,60 +8,64 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
-    <LinearLayout
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/bg_gradient"
-        android:fitsSystemWindows="true"
-        android:orientation="vertical"
-        tools:context=".controllers.MainActivity">
-
-        <ImageView
-            android:id="@+id/ham_menu"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_margin="15dp"
-            android:contentDescription="@string/hamburger_menu"
-            android:src="@drawable/ic_ham_menu" />
-
+        android:layout_height="match_parent">
         <LinearLayout
-            android:id="@+id/main_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_gradient"
+            android:fitsSystemWindows="true"
             android:orientation="vertical"
-            android:paddingStart="20dp"
-            android:paddingTop="5dp"
-            android:paddingEnd="20dp"
-            android:paddingBottom="5dp">
+            tools:context=".controllers.MainActivity">
 
-            <TextView
+            <ImageView
+                android:id="@+id/ham_menu"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_margin="20dp"
+                android:contentDescription="@string/hamburger_menu"
+                android:src="@drawable/ic_ham_menu" />
+
+            <LinearLayout
+                android:id="@+id/main_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="3dp"
-                android:fontFamily="@font/nunito"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp"
-                android:text="@string/weather_forecast"
-                android:textColor="@android:color/white"
-                android:textSize="23sp" />
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingStart="30dp"
+                android:paddingEnd="30dp"
+                android:paddingBottom="5dp">
 
-            <include
-                layout="@layout/weather_layout"
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:fontFamily="@font/nunito"
+                    android:text="@string/weather_forecast"
+                    android:textColor="@android:color/white"
+                    android:textSize="23sp" />
+
+                <include
+                    layout="@layout/weather_layout"
+                    android:layout_marginTop="40dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/activity_recycler_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:paddingBottom="10dp"
+                android:scrollbars="vertical" />
+
+
         </LinearLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/activity_recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:paddingBottom="10dp"
-            android:scrollbars="vertical" />
-
-
-    </LinearLayout>
 
 
     <android.support.design.widget.NavigationView

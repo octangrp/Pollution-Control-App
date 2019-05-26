@@ -4,9 +4,10 @@ import com.rema.pollutioncontrol.R
 import java.io.Serializable
 import kotlin.math.roundToInt
 
-class Weather(var qualityIndex: AirQualityIndex, var humidity: Double, var temperature: Double, var windSpeed: Double):Serializable {
+class Weather(var qualityIndex: AirQualityIndex, var humidity: Double, var temperature: Double, var windSpeed: Double, var conditon: String? = "") : Serializable {
 
-    fun temperatureString(): String = temperature.roundToInt().toString() + " \u00B0"+ "C"
+
+    fun temperatureString(): String = temperature.roundToInt().toString() + " \u00B0" + "C"
     fun windSpeedString(): String = windSpeed.roundToInt().toString() + " km/h"
     fun humidityString(): String = humidity.roundToInt().toString() + " %"
 

@@ -28,49 +28,49 @@ class NaturalForestActivity : AppCompatActivity() {
         (findViewById<View>(R.id.back_button)).setOnClickListener { finish() }
         (findViewById<View>(R.id.activity_title) as TextView).text = getString(R.string.natural_forest)
         initializeList()
-        val adapter = ForestAdapter(forestList,this)
+        val adapter = ForestAdapter(forestList, this)
         recyclerView.adapter = adapter
 
     }
 
-    private fun initializeList(){
-        forestList.add(Forest(R.drawable.forest_nyungwe_thumb,
+    private fun initializeList() {
+        forestList.add(Forest(
+                R.drawable.forest_nyungwe_thumb,
+                R.drawable.forest_nyungwe_main,
                 "Nyungwe Forest",
                 Weather(
                         AirQualityIndex(10),
                         45.0,
                         20.0,
-                        126.0
-                ), "Gishwati    Possibly the most of data \n" +
-                "visualizations, a timeline tracks \n" +
-                "data over a time period.Possibly\n" +
-                " the most self-explanatory."
-                )
+                        126.0,
+                        "Sunny"
+                ), getString(R.string.nyungwe_description)
         )
-        forestList.add(Forest(R.drawable.forest_gishwati_thumb,
+        )
+        forestList.add(Forest(
+                R.drawable.forest_gishwati_thumb,
+                R.drawable.forest_gishwati_main,
                 "Gishwati Forest",
                 Weather(
                         AirQualityIndex(10),
                         45.0,
                         23.0,
-                        112.0
-                ), "Gishwati  Possibly the most of data \n" +
-                "visualizations, a timeline tracks \n" +
-                "data over a time period.Possibly\n" +
-                " the most self-explanatory."
+                        112.0,
+                        "Cloudy"
+                ), getString(R.string.large_text)
         )
         )
-        forestList.add(Forest(R.drawable.forest_nyungwe_thumb,
+        forestList.add(Forest(
+                R.drawable.forest_bisoke_thumb,
+                R.drawable.forest_bisoke_main,
                 "Bisoke Forest",
                 Weather(
                         AirQualityIndex(10),
                         60.0,
                         16.0,
-                        96.0
-                ), "Gishwati  Possibly the most of data \n" +
-                "visualizations, a timeline tracks \n" +
-                "data over a time period.Possibly\n" +
-                " the most self-explanatory."
+                        96.0,
+                        "Raining"
+                ), getString(R.string.large_text)
         )
         )
     }

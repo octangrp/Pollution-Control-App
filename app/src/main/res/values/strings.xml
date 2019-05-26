@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Pollution Control</string>
     <string name="login">Login</string>
-    <string name="weather_forecast">weather forecast</string>
+    <string name="weather_forecast">Weather Forecast</string>
     <string name="bicycle">Bicycle</string>
     <string name="running">Running</string>
     <string name="title_activity_main2">Main2Activity</string>
@@ -30,15 +30,9 @@
     <string name="title_activity_view_city">ViewCity</string>
     <string name="wind_speed_icon">Wind Speed Icon</string>
     <string name="title_activity_scrolling">ScrollingActivity</string>
+    <string name="nyungwe_description">"Tucked away in the middle of tea Plantations, the biggest mountain rain forest on this side of the African continent can be a bit deceptive in its vastness if you simply catch a glimpse of it from a far.\n\n Nyungwe forest is probably the most preserved forest in Africa. Some say it is the most important site for biodiversity in Rwanda. It is home to over 1000 species of creation after all."</string>
     <string name="large_text">
-        "Gishwati    Possibly the most of data
-            visualizations, a timeline tracks
-            data over a time period.Possibly
-             the most self-explanatory.\n\n"
-         "Gishwati    Possibly the most of data
-            visualizations, a timeline tracks
-            data over a time period.Possibly
-             the most self-explanatory.\n\n"
+        "Gishwati    Possibly the most of data visualizations, a timeline tracks data over a time period.Possibly the most self-explanatory.\n\n Gishwati    Possibly the most of data visualizations, a timeline tracks data over a time period.Possibly the most self-explanatory.\n\n"
     </string>
     <string name="humidity">Humidity</string>
     <string name="temperature">Temperature</string>
