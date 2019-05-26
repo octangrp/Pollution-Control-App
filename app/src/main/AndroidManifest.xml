@@ -10,9 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".controllers.Main2Activity"
-            android:label="@string/title_activity_main2"
+            android:name=".controllers.ScrollingActivity"
+            android:label="@string/title_activity_scrolling"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".controllers.ViewForestActivity" />
+        <activity android:name=".controllers.NaturalForestActivity" />
+        <activity android:name=".controllers.FightClimateChangeActivity" />
+        <activity
+            android:name=".controllers.ViewCityActivity"
+            android:theme="@style/AppTheme" />
         <activity android:name=".controllers.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

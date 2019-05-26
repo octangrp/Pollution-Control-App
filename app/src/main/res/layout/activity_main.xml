@@ -16,19 +16,24 @@
         android:orientation="vertical"
         tools:context=".controllers.MainActivity">
 
+        <ImageView
+            android:id="@+id/ham_menu"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="15dp"
+            android:contentDescription="@string/hamburger_menu"
+            android:src="@drawable/ic_ham_menu" />
+
         <LinearLayout
+            android:id="@+id/main_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:padding="20dp">
-
-            <ImageView
-                android:id="@+id/ham_menu"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:contentDescription="@string/hamburger_menu"
-                android:src="@drawable/ic_ham_menu" />
+            android:paddingStart="20dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="5dp">
 
             <TextView
                 android:layout_width="match_parent"
@@ -64,11 +69,11 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:itemIconTint="@android:color/black"
         android:background="@android:color/white"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main2"
-        app:itemTextColor="@android:color/black"
+        app:itemIconTint="@android:color/black"
         app:itemTextAppearance="@style/ComfortaaBoldTextViewStyle"
+        app:itemTextColor="@android:color/black"
         app:menu="@menu/activity_main2_drawer" />
 </android.support.v4.widget.DrawerLayout>

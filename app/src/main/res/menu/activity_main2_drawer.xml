@@ -9,27 +9,27 @@
             android:icon="@drawable/ic_home"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/natural_forest"
+            android:id="@+id/nav_natural_forest"
             android:icon="@drawable/ic_rain"
             android:title="@string/natural_forest" />
         <item
-            android:id="@+id/residential_non_areas"
+            android:id="@+id/nav_residential_non_areas"
             android:icon="@drawable/ic_building"
             android:title="@string/residential_non_areas" />
         <item
-            android:id="@+id/wet_lands"
+            android:id="@+id/nav_wet_lands"
             android:icon="@drawable/ic_wet"
             android:title="@string/wet_lands" />
         <item
-            android:id="@+id/protected_non_areas"
+            android:id="@+id/nav_protected_non_areas"
             android:icon="@drawable/ic_security"
             android:title="@string/protected_non_areas" />
         <item
-            android:id="@+id/parks"
+            android:id="@+id/nav_parks"
             android:icon="@drawable/ic_forest"
             android:title="@string/parks" />
         <item
-            android:id="@+id/fight_climate_change"
+            android:id="@+id/nav_fight_climate_change"
             android:icon="@drawable/ic_info"
             android:title="@string/fight_climate_change" />
     </group>

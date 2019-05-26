@@ -1,8 +1,9 @@
 package com.rema.pollutioncontrol.models
 
+import java.io.Serializable
 import kotlin.math.roundToInt
 
-class AirQualityIndex(var index: Int) {
+class AirQualityIndex(var index: Int): Serializable {
 
     fun level(): Int {
         when {
