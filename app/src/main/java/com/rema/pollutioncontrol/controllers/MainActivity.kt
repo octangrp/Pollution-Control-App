@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setContentView(R.layout.activity_main)
         (findViewById<View>(R.id.weather_icon)).visibility = View.VISIBLE
         (findViewById<View>(R.id.condition) as TextView).visibility = View.VISIBLE
+        (findViewById<View>(R.id.activity_title) as TextView).text = getString(R.string.weather_forecast)
 
         val linearLayout = LinearLayoutManager(this)
         linearLayout.orientation = LinearLayoutManager.HORIZONTAL
@@ -148,7 +149,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     fun displayWeather(location: Location?) {
         val weather = location?.weather
         if (weather != null) {
-            (findViewById<View>(R.id.weather_icon) as ImageView).setImageDrawable(getDrawable(weather.icon()))
+            (findViewById<View>(R.id.weather_icon) as ImageView).setImageDrawable(getDrawable(weather.qualityIndex.icon()))
             (findViewById<View>(R.id.condition) as TextView).text = weather.qualityIndex.condition()
             (findViewById<View>(R.id.aqi_index) as TextView).text = weather.qualityIndex.toString()
             (findViewById<View>(R.id.humidity) as TextView).text = weather.humidityString()

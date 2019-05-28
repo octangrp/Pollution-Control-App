@@ -37,4 +37,10 @@
     <string name="humidity">Humidity</string>
     <string name="temperature">Temperature</string>
     <string name="wind_speed">Wind Speed</string>
+
+
+
+    <string name="weather_sunny">Sunny</string>
+    <string name="weather_cloudy">Cloudy</string>
+    <string name="weather_raining">Raining</string>
 </resources>

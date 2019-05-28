@@ -20,13 +20,10 @@
             android:orientation="vertical"
             tools:context=".controllers.MainActivity">
 
-            <ImageView
-                android:id="@+id/ham_menu"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_margin="20dp"
-                android:contentDescription="@string/hamburger_menu"
-                android:src="@drawable/ic_ham_menu" />
+            <include
+                layout="@layout/app_bar_hamburger_menu_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
             <LinearLayout
                 android:id="@+id/main_view"
@@ -37,16 +34,6 @@
                 android:paddingStart="30dp"
                 android:paddingEnd="30dp"
                 android:paddingBottom="5dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="3dp"
-                    android:fontFamily="@font/nunito"
-                    android:text="@string/weather_forecast"
-                    android:textColor="@android:color/white"
-                    android:textSize="23sp" />
-
                 <include
                     layout="@layout/weather_layout"
                     android:layout_marginTop="40dp"

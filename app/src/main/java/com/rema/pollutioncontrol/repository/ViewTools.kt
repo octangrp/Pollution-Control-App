@@ -6,6 +6,8 @@ import android.support.v4.widget.DrawerLayout
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
+import android.animation.ValueAnimator
+import android.widget.TextView
 
 
 class ViewTools {
@@ -39,6 +41,14 @@ class ViewTools {
         private fun getPixels(context: Context, size: Int): Int {
             val scale = context.getResources().getDisplayMetrics().density
             return (size * scale + 0.5f).toInt()
+        }
+
+
+        fun startCountAnimation(textView: TextView, oldValue: Int, value: Int, duration: Int) {
+            val animator = ValueAnimator.ofInt(oldValue, value)
+            animator.duration = duration.toLong()
+            animator.addUpdateListener { animation -> textView.text = animation.animatedValue.toString() }
+            animator.start()
         }
 
     }

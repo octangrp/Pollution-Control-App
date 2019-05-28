@@ -1,9 +1,11 @@
 package com.rema.pollutioncontrol.models
 
+import android.graphics.Color
+import com.rema.pollutioncontrol.R
 import java.io.Serializable
 import kotlin.math.roundToInt
 
-class AirQualityIndex(var index: Int): Serializable {
+class AirQualityIndex(var index: Int) : Serializable {
 
     fun level(): Int {
         when {
@@ -18,15 +20,55 @@ class AirQualityIndex(var index: Int): Serializable {
     }
 
     fun condition(): String {
-        when {
-            level() == 1 -> return "Excellent"
-            level() == 2 -> return "Good"
-            level() == 3 -> return "Light"
-            level() == 4 -> return "Moderate"
-            level() == 5 -> return "Heavy"
-            level() == 6 -> return "Severe"
+        return when {
+            level() == 1 -> "Excellent"
+            level() == 2 -> "Good"
+            level() == 3 -> "Light"
+            level() == 4 -> "Moderate"
+            level() == 5 -> "Heavy"
+            level() == 6 -> "Severe"
+            else -> "...."
         }
-        return "...."
+    }
+
+    fun conditionColor(): Int {
+        return when {
+            level() == 1 -> Color.parseColor("#46A038")
+            level() == 2 -> Color.parseColor("#54B948")
+            level() == 3 -> Color.parseColor("#FEE900")
+            level() == 4 -> Color.parseColor("#F47C20")
+            level() == 5 -> Color.parseColor("#DC2826")
+            else -> Color.parseColor("#DC2927")
+        }
+    }
+
+    fun percent(): Int {
+        if (index >= 300) {
+            return 100
+        }
+        return (index * 100) / 300
+    }
+
+    fun icon(): Int {
+        return when (level()) {
+            1 -> R.drawable.ic_weather_excellent
+            2 -> R.drawable.ic_weather_good
+            3 -> R.drawable.ic_weather_light
+            4 -> R.drawable.ic_weather_moderate
+            5 -> R.drawable.ic_weather_heavy
+            else -> R.drawable.ic_weather_severe
+        }
+    }
+
+    fun gauge(): Int {
+        return when (level()) {
+            1 -> R.drawable.ic_gauge_excellent
+            2 -> R.drawable.ic_gauge_good
+            3 -> R.drawable.ic_gauge_light
+            4 -> R.drawable.ic_gauge_moderate
+            5 -> R.drawable.ic_gauge_heavy
+            else -> R.drawable.ic_gauge_severe
+        }
     }
 
     override fun toString(): String {
