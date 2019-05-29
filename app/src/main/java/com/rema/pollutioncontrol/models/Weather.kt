@@ -24,7 +24,7 @@ class Weather(var qualityIndex: AirQualityIndex, var humidity: Double, var tempe
         return when (this.condition) {
             2 -> R.string.weather_cloudy
             3 -> R.string.weather_raining
-            else -> R.string.weather_raining
+            else -> R.string.weather_sunny
         }
     }
 

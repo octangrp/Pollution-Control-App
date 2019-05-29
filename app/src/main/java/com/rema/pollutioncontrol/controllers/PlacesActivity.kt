@@ -1,16 +1,26 @@
 package com.rema.pollutioncontrol.controllers
 
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.TextView
+import com.github.mikephil.charting.animation.Easing
+import com.github.mikephil.charting.charts.LineChart
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
+import com.github.mikephil.charting.highlight.Highlight
+import com.github.mikephil.charting.utils.MPPointF
 import com.rema.pollutioncontrol.R
 import com.rema.pollutioncontrol.adapaters.PlaceAdapter
 import com.rema.pollutioncontrol.models.AirQualityIndex
+import com.rema.pollutioncontrol.models.Forecast
 import com.rema.pollutioncontrol.models.Place
 import com.rema.pollutioncontrol.models.Weather
+import com.rema.pollutioncontrol.repository.seeders.ForecastingDataSeeder
 import java.util.ArrayList
 
 class PlacesActivity : AppCompatActivity() {
@@ -36,7 +46,7 @@ class PlacesActivity : AppCompatActivity() {
         placeList.add(Place(
                 R.drawable.forest_nyungwe_thumb,
                 R.drawable.forest_nyungwe_main,
-                "Nyungwe Place",
+                "Nyungwe Park",
                 Weather(
                         AirQualityIndex(10),
                         45.0,
@@ -49,7 +59,7 @@ class PlacesActivity : AppCompatActivity() {
         placeList.add(Place(
                 R.drawable.forest_gishwati_thumb,
                 R.drawable.forest_gishwati_main,
-                "Gishwati Place",
+                "Gishwati Forest",
                 Weather(
                         AirQualityIndex(10),
                         45.0,
@@ -62,7 +72,7 @@ class PlacesActivity : AppCompatActivity() {
         placeList.add(Place(
                 R.drawable.forest_bisoke_thumb,
                 R.drawable.forest_bisoke_main,
-                "Bisoke Place",
+                "Bisoke Forest",
                 Weather(
                         AirQualityIndex(10),
                         60.0,
@@ -73,4 +83,6 @@ class PlacesActivity : AppCompatActivity() {
         )
         )
     }
+
+
 }

@@ -18,8 +18,8 @@ class ForecastingDataSeeder {
 //            }
             var nextDate = DateTime()
             for (i in 1..100) {
-                array.add(Forecast(nextDate, WeatherSeeder.run()))
                 nextDate = nextDate.plusHours(2)
+                array.add(Forecast(nextDate, WeatherSeeder.run()))
             }
             return array
         }

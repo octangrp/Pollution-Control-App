@@ -19,6 +19,7 @@ class PlaceAdapter(private val places: ArrayList<Place>, var context: Context) :
 
     class ViewHolder(var linearLayout: LinearLayout) : RecyclerView.ViewHolder(linearLayout) {
         var thumbnail: ImageView = linearLayout.findViewById<View>(R.id.card_image) as ImageView
+        var temperatureIcon: ImageView = linearLayout.findViewById<View>(R.id.temperature_icon) as ImageView
         var title: TextView = linearLayout.findViewById<View>(R.id.card_title) as TextView
         var temperature: TextView = linearLayout.findViewById<View>(R.id.temperature) as TextView
         var windSpeed: TextView = linearLayout.findViewById<View>(R.id.wind_speed) as TextView
@@ -42,6 +43,7 @@ class PlaceAdapter(private val places: ArrayList<Place>, var context: Context) :
         intent.putExtra("place", forest)
         view.linearLayout.setOnClickListener { context.startActivity(intent) }
         view.thumbnail.setImageDrawable(context.getDrawable(forest.thumbnail))
+        view.temperatureIcon.setImageDrawable(context.getDrawable(forest.weather.icon()))
         view.title.text = forest.name
         view.temperature.text = forest.weather.temperatureString()
         view.windSpeed.text = forest.weather.windSpeedString()

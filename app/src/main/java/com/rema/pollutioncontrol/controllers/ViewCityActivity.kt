@@ -3,6 +3,7 @@ package com.rema.pollutioncontrol.controllers
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
+import android.os.Handler
 import android.support.v4.content.res.ResourcesCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.MotionEvent
@@ -12,6 +13,7 @@ import android.widget.TextView
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.charts.PieChart
+import com.github.mikephil.charting.components.YAxis
 import com.github.mikephil.charting.listener.ChartTouchListener
 import com.github.mikephil.charting.listener.OnChartGestureListener
 import com.github.mikephil.charting.utils.MPPointF
@@ -23,6 +25,8 @@ import com.rema.pollutioncontrol.models.AirQualityIndex
 import com.rema.pollutioncontrol.models.Forecast
 import com.rema.pollutioncontrol.models.Weather
 import com.rema.pollutioncontrol.repository.seeders.ForecastingDataSeeder
+import com.rema.pollutioncontrol.repository.seeders.WeatherSeeder
+import org.joda.time.DateTime
 import org.joda.time.format.DateTimeFormat
 import kotlin.collections.ArrayList
 
@@ -85,10 +89,6 @@ class ViewCityActivity : AppCompatActivity(), OnChartGestureListener {
     }
 
     fun updatePieChart(oldValue: Int) {
-        if (enableAnimation) {
-            enableAnimation = false
-            pieChart.animateY(600, Easing.EaseOutBack)
-        }
         pieChart.centerText = pollutionCondition
         pieChart.data = getPieChartData()
         pieChart.notifyDataSetChanged()
@@ -118,14 +118,13 @@ class ViewCityActivity : AppCompatActivity(), OnChartGestureListener {
         (findViewById<View>(R.id.weather_icon)).visibility = View.GONE
         location = intent.getSerializableExtra("location") as Location
         displayWeather(location)
-        setWeatherForecasting()
+        location.weather?.let { Forecast(DateTime(), it) }?.let { weatherForecast.add(it) }
         chart = findViewById(R.id.chart)
         pieChart = findViewById(R.id.pie_chart)
-        val max = 100
-        val data = getData(10, max.toFloat())
         location.weather?.qualityIndex?.index?.let { updateQualityIndex(it) }
-//        // add some transparency to the color with "& 0x90FFFFFF"
-        setupChart(chart, data, Color.parseColor("#00252E34"))
+        // add some transparency to the color with "& 0x90FFFFFF"
+        setWeatherForecasting()
+        setupChart(chart)
         setupPieChart(pieChart)
     }
 
@@ -216,9 +215,7 @@ class ViewCityActivity : AppCompatActivity(), OnChartGestureListener {
         return PieData(dataSet)
     }
 
-    private fun setupChart(chart: LineChart, data: LineData, color: Int) {
-
-        (data.getDataSetByIndex(0) as LineDataSet).circleHoleColor = color
+    private fun setupChart(chart: LineChart) {
 
         // no description text
         chart.description.isEnabled = false
@@ -248,7 +245,7 @@ class ViewCityActivity : AppCompatActivity(), OnChartGestureListener {
         // set custom chart offsets (automatic offset calculation is hereby disabled)
 
         // add data
-        chart.data = data
+        chart.data = getData()
 
         // get the legend (only possible after setting data)
         val l = chart.legend
@@ -268,12 +265,13 @@ class ViewCityActivity : AppCompatActivity(), OnChartGestureListener {
         chart.invalidate()
         chart.animateY(1500, Easing.EaseInOutQuad)
         chart.onChartGestureListener = this
-        setPAQIindex()
-
-
+        chart.centerViewTo(0f,0f, YAxis.AxisDependency.RIGHT)
+        Handler().postDelayed({
+            setPAQIindex()
+        }, 50)
     }
 
-    private fun getData(count: Int, range: Float): LineData {
+    private fun getData(): LineData {
 
         val values = ArrayList<Entry>()
         weatherForecast.forEachIndexed { index, e ->
@@ -307,7 +305,7 @@ class ViewCityActivity : AppCompatActivity(), OnChartGestureListener {
 
 
     fun setWeatherForecasting() {
-        weatherForecast = ForecastingDataSeeder.run(this)
+        weatherForecast.addAll(ForecastingDataSeeder.run(this))
     }
 
 }
