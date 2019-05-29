@@ -1,7 +1,6 @@
-package com.rema.pollutioncontrol.repository
+package com.rema.pollutioncontrol.repository.seeders
 
 import android.content.Context
-import com.rema.pollutioncontrol.R
 import com.rema.pollutioncontrol.models.AirQualityIndex
 import com.rema.pollutioncontrol.models.Forecast
 import com.rema.pollutioncontrol.models.Weather
@@ -18,12 +17,8 @@ class ForecastingDataSeeder {
 //                array.add(Forecast(previousDate, Weather(AirQualityIndex((10..300).random()), ((10..100).random()).toDouble(),  ((12..30).random()).toDouble(), ((60..150).random()).toDouble(), context.getString(R.string.weather_cloudy))))
 //            }
             var nextDate = DateTime()
-            val conditionList = ArrayList<String>()
-            conditionList.add(context.getString(R.string.weather_sunny))
-            conditionList.add(context.getString(R.string.weather_cloudy))
-            conditionList.add(context.getString(R.string.weather_raining))
             for (i in 1..100) {
-                array.add(Forecast(nextDate, Weather(AirQualityIndex((10..350).random()), ((10..100).random()).toDouble(), ((12..30).random()).toDouble(), ((60..150).random()).toDouble(), conditionList[(0..2).random()])))
+                array.add(Forecast(nextDate, WeatherSeeder.run()))
                 nextDate = nextDate.plusHours(2)
             }
             return array

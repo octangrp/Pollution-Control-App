@@ -7,16 +7,15 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.TextView
 import com.rema.pollutioncontrol.R
-import com.rema.pollutioncontrol.adapaters.FightClimateChangeAdapter
-import com.rema.pollutioncontrol.adapaters.ForestAdapter
+import com.rema.pollutioncontrol.adapaters.PlaceAdapter
 import com.rema.pollutioncontrol.models.AirQualityIndex
-import com.rema.pollutioncontrol.models.Forest
+import com.rema.pollutioncontrol.models.Place
 import com.rema.pollutioncontrol.models.Weather
 import java.util.ArrayList
 
-class NaturalForestActivity : AppCompatActivity() {
+class PlacesActivity : AppCompatActivity() {
 
-    var forestList = ArrayList<Forest>()
+    var placeList = ArrayList<Place>()
     lateinit var recyclerView: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,50 +25,50 @@ class NaturalForestActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.recycler_view)
         recyclerView.layoutManager = linearLayout
         (findViewById<View>(R.id.back_button)).setOnClickListener { finish() }
-        (findViewById<View>(R.id.activity_title) as TextView).text = getString(R.string.natural_forest)
+        (findViewById<View>(R.id.activity_title) as TextView).text = getString(R.string.places)
         initializeList()
-        val adapter = ForestAdapter(forestList, this)
+        val adapter = PlaceAdapter(placeList, this)
         recyclerView.adapter = adapter
 
     }
 
     private fun initializeList() {
-        forestList.add(Forest(
+        placeList.add(Place(
                 R.drawable.forest_nyungwe_thumb,
                 R.drawable.forest_nyungwe_main,
-                "Nyungwe Forest",
+                "Nyungwe Place",
                 Weather(
                         AirQualityIndex(10),
                         45.0,
                         20.0,
                         126.0,
-                        "Sunny"
+                        1
                 ), getString(R.string.nyungwe_description)
         )
         )
-        forestList.add(Forest(
+        placeList.add(Place(
                 R.drawable.forest_gishwati_thumb,
                 R.drawable.forest_gishwati_main,
-                "Gishwati Forest",
+                "Gishwati Place",
                 Weather(
                         AirQualityIndex(10),
                         45.0,
                         23.0,
                         112.0,
-                        "Cloudy"
+                        2
                 ), getString(R.string.large_text)
         )
         )
-        forestList.add(Forest(
+        placeList.add(Place(
                 R.drawable.forest_bisoke_thumb,
                 R.drawable.forest_bisoke_main,
-                "Bisoke Forest",
+                "Bisoke Place",
                 Weather(
                         AirQualityIndex(10),
                         60.0,
                         16.0,
                         96.0,
-                        "Raining"
+                        3
                 ), getString(R.string.large_text)
         )
         )

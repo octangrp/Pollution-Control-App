@@ -39,8 +39,11 @@
     <string name="wind_speed">Wind Speed</string>
 
 
-
     <string name="weather_sunny">Sunny</string>
     <string name="weather_cloudy">Cloudy</string>
     <string name="weather_raining">Raining</string>
+    <string name="places">Places</string>
+    <string name="title_activity_tabbed">TabbedActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
 </resources>

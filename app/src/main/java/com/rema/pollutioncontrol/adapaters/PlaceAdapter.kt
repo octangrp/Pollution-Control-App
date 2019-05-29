@@ -2,7 +2,6 @@ package com.rema.pollutioncontrol.adapaters
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.BitmapFactory
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -10,14 +9,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import com.rema.pollutioncontrol.R
-import com.rema.pollutioncontrol.controllers.NaturalForestActivity
-import com.rema.pollutioncontrol.controllers.ViewForestActivity
-import com.rema.pollutioncontrol.models.Forest
+import com.rema.pollutioncontrol.controllers.ViewPlaceActivity
+import com.rema.pollutioncontrol.models.Place
 import java.util.*
 
-class ForestAdapter(private val forests: ArrayList<Forest>, var context: Context) : RecyclerView.Adapter<ForestAdapter.ViewHolder>() {
+class PlaceAdapter(private val places: ArrayList<Place>, var context: Context) : RecyclerView.Adapter<PlaceAdapter.ViewHolder>() {
 
 
     class ViewHolder(var linearLayout: LinearLayout) : RecyclerView.ViewHolder(linearLayout) {
@@ -30,19 +27,19 @@ class ForestAdapter(private val forests: ArrayList<Forest>, var context: Context
     override fun onCreateViewHolder(parent: ViewGroup,
                                     viewType: Int): ViewHolder {
         val linearLayout = LayoutInflater.from(parent.context)
-                .inflate(R.layout.forest_list_item, parent, false) as LinearLayout
+                .inflate(R.layout.place_list_item, parent, false) as LinearLayout
         return ViewHolder(linearLayout)
     }
 
     override fun getItemCount(): Int {
-        return forests.size
+        return places.size
     }
 
     override fun onBindViewHolder(view: ViewHolder, position: Int) {
         // get current activity from the list
-        val forest = forests[position]
-        val intent = Intent(context,ViewForestActivity::class.java)
-        intent.putExtra("forest", forest)
+        val forest = places[position]
+        val intent = Intent(context,ViewPlaceActivity::class.java)
+        intent.putExtra("place", forest)
         view.linearLayout.setOnClickListener { context.startActivity(intent) }
         view.thumbnail.setImageDrawable(context.getDrawable(forest.thumbnail))
         view.title.text = forest.name

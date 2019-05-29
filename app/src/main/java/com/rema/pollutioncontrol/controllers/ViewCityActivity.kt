@@ -3,7 +3,6 @@ package com.rema.pollutioncontrol.controllers
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
-import android.os.Handler
 import android.support.v4.content.res.ResourcesCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.MotionEvent
@@ -13,31 +12,19 @@ import android.widget.TextView
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.charts.PieChart
-import com.github.mikephil.charting.components.XAxis
-import com.github.mikephil.charting.formatter.IAxisValueFormatter
 import com.github.mikephil.charting.listener.ChartTouchListener
 import com.github.mikephil.charting.listener.OnChartGestureListener
 import com.github.mikephil.charting.utils.MPPointF
 import com.rema.pollutioncontrol.R
 import com.rema.pollutioncontrol.models.Location
-import com.github.mikephil.charting.components.YAxis
-import com.github.mikephil.charting.utils.ColorTemplate
-import javax.xml.datatype.DatatypeConstants.HOURS
-import com.github.mikephil.charting.components.AxisBase
-import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.highlight.Highlight
 import com.rema.pollutioncontrol.models.AirQualityIndex
 import com.rema.pollutioncontrol.models.Forecast
 import com.rema.pollutioncontrol.models.Weather
-import com.rema.pollutioncontrol.repository.ForecastingDataSeeder
-import com.rema.pollutioncontrol.repository.ViewTools
+import com.rema.pollutioncontrol.repository.seeders.ForecastingDataSeeder
 import org.joda.time.format.DateTimeFormat
-import java.text.SimpleDateFormat
-import java.util.*
-import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
-import kotlin.concurrent.timerTask
 
 
 class ViewCityActivity : AppCompatActivity(), OnChartGestureListener {
@@ -136,17 +123,19 @@ class ViewCityActivity : AppCompatActivity(), OnChartGestureListener {
         pieChart = findViewById(R.id.pie_chart)
         val max = 100
         val data = getData(10, max.toFloat())
-        updateQualityIndex(location.weather.qualityIndex.index)
+        location.weather?.qualityIndex?.index?.let { updateQualityIndex(it) }
 //        // add some transparency to the color with "& 0x90FFFFFF"
         setupChart(chart, data, Color.parseColor("#00252E34"))
         setupPieChart(pieChart)
     }
 
     private fun displayWeather(location: Location) {
-        val weather = location.weather
+        val weather: Weather? = location.weather
         hideUnusedFields()
         (findViewById<TextView>(R.id.activity_title)).text = location.name
-        displayWeatherDetails(weather)
+        if (weather != null) {
+            displayWeatherDetails(weather)
+        }
     }
 
     private fun displayWeatherDetails(weather: Weather) {
@@ -154,6 +143,7 @@ class ViewCityActivity : AppCompatActivity(), OnChartGestureListener {
         (findViewById<TextView>(R.id.aqi_index)).text = weather.qualityIndex.toString()
         (findViewById<TextView>(R.id.humidity)).text = weather.humidityString()
         (findViewById<TextView>(R.id.temperature)).text = weather.temperatureString()
+        (findViewById<ImageView>(R.id.temperature_icon)).setImageDrawable(getDrawable(weather.icon()))
         (findViewById<TextView>(R.id.wind_speed)).text = weather.windSpeedString()
     }
 
@@ -171,8 +161,6 @@ class ViewCityActivity : AppCompatActivity(), OnChartGestureListener {
         chart.setExtraOffsets(0f, 0f, 0f, 0f)
 
         chart.dragDecelerationFrictionCoef = 0.95f
-
-//        chart.setCenterTextTypeface(tfLight);
 
         chart.isDrawHoleEnabled = true
         chart.setHoleColor(Color.TRANSPARENT)
@@ -193,11 +181,7 @@ class ViewCityActivity : AppCompatActivity(), OnChartGestureListener {
         // chart.setUnit(" €");
         // chart.setDrawUnitsInChart(true);
 
-        // add a selection listener
-//        chart.setOnChartValueSelectedListener(this);
-//
-//        seekBarX.setProgress(4);
-//        seekBarY.setProgress(10);
+
         chart.centerText = pollutionCondition
         chart.setCenterTextTypeface(typeface)
         chart.holeRadius = 67f
@@ -270,8 +254,8 @@ class ViewCityActivity : AppCompatActivity(), OnChartGestureListener {
         val l = chart.legend
         l.isEnabled = false
 
-        val highlit = Highlight(0f, 0f, 0)
-        chart.highlightValue(highlit, false)
+        val highlight = Highlight(0f, 0f, 0)
+        chart.highlightValue(highlight, false)
 
         chart.axisLeft.isEnabled = false
         chart.axisLeft.spaceTop = 40f
@@ -293,7 +277,7 @@ class ViewCityActivity : AppCompatActivity(), OnChartGestureListener {
 
         val values = ArrayList<Entry>()
         weatherForecast.forEachIndexed { index, e ->
-            values.add(Entry(index.toFloat(), e.weather.qualityIndex.index.toFloat(), getDrawable(e.weather.icon(this))))
+            values.add(Entry(index.toFloat(), e.weather.qualityIndex.index.toFloat(), getDrawable(e.weather.icon())))
         }
         // create a dataset and give it a type
         val set1 = LineDataSet(values, "DataSet 1")

@@ -4,4 +4,7 @@
     <color name="colorPrimaryDark">#5D646B</color>
     <color name="colorAccent">#0275FB</color>
     <color name="colorStartingGradient">#252E34</color>
+    <color name="colorActivityFavorable">#46A038</color>
+    <color name="colorActivityFairlyFavorable">#F47C20</color>
+    <color name="colorActivityNotFavorable">#DC2927</color>
 </resources>
