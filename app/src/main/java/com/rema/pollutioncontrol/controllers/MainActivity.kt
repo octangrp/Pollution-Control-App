@@ -13,7 +13,9 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.rema.pollutioncontrol.R
+import com.rema.pollutioncontrol.adapaters.ActivityListAdapter
 import com.rema.pollutioncontrol.controllers.ui.main.SectionsPagerAdapter
+import com.rema.pollutioncontrol.models.Activity
 import com.rema.pollutioncontrol.models.AirQualityIndex
 import com.rema.pollutioncontrol.models.Location
 import com.rema.pollutioncontrol.models.Weather
@@ -22,9 +24,10 @@ import com.rema.pollutioncontrol.repository.ViewTools
 import com.rema.pollutioncontrol.repository.seeders.WeatherSeeder
 
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, ActivityListAdapter.ItemClickListener {
 
     var locations = ArrayList<Location>()
+    lateinit var locationPin: ImageView
     lateinit var activityTitle: TextView
     lateinit var sectionsPagerAdapter: SectionsPagerAdapter
     lateinit var viewPager: ViewPager
@@ -33,12 +36,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setContentView(R.layout.activity_main)
         this.setupData()
         activityTitle = findViewById(R.id.activity_title)
+        locationPin = findViewById(R.id.current_location_pin)
         sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager, locations)
         viewPager = findViewById(R.id.view_pager)
         viewPager.adapter = sectionsPagerAdapter
         val tabLayout = findViewById<TabLayout>(R.id.tabDots)
         tabLayout.setupWithViewPager(viewPager, true)
         activityTitle.text = locations[0].name
+        toggleLocationPin(locations[0])
         viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
 
@@ -46,6 +51,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             override fun onPageSelected(position: Int) {
                 activityTitle.text = locations[position].name
+                toggleLocationPin(locations[position])
             }
 
             override fun onPageScrollStateChanged(state: Int) {
@@ -58,7 +64,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         navView.setNavigationItemSelectedListener(this)
         ViewTools.setNavigationDrawerToggler(hamMenu, drawerLayout)
         (findViewById<ImageView>(R.id.ham_menu_add)).setOnClickListener { startActivity(Intent(this, SearchActivity::class.java)) }
-//        this.addListener()
+    }
+
+    private fun toggleLocationPin(location: Location) {
+        if (location.isCurrent) {
+            locationPin.visibility = View.VISIBLE
+        } else {
+            locationPin.visibility = View.GONE
+        }
     }
 
     override fun onResume() {
@@ -67,15 +80,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         sectionsPagerAdapter.locations = locations
         sectionsPagerAdapter.notifyDataSetChanged()
     }
-
-    private fun initializeActivities(weather: Weather) {
-//        this.activities.add(Activity(getString(R.string.bicycle), getDrawable(R.drawable.cycllng), weather, 2, true))
-//        this.activities.add(Activity(getString(R.string.running), getDrawable(R.drawable.run), weather, 1, false))
-//        this.activities.add(Activity(getString(R.string.bicycle), getDrawable(R.drawable.cycllng), weather, 3, true))
-//        this.activities.add(Activity("Driving", getDrawable(R.drawable.run), weather, 4, true))
-//        this.activities.add(Activity(getString(R.string.running), getDrawable(R.drawable.run), weather, 2, true))
-    }
-
 
     override fun onBackPressed() {
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
@@ -99,6 +103,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.places -> {
                 startActivity(Intent(this, PlacesActivity::class.java))
             }
+            R.id.nav_agriculture -> {
+                startActivity(Intent(this, HarvestActivity::class.java))
+            }
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         drawerLayout.closeDrawer(GravityCompat.START)
@@ -107,7 +114,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private fun setupData() {
         locations = ArrayList<Location>()
-        locations.add(Location("Kigali City", WeatherSeeder.run()))
+        locations.add(Location("Kigali City", WeatherSeeder.run(), true))
         val savedLocationList = LocationListPrefs(this).getList()
         for (location in savedLocationList) {
             location.weather = WeatherSeeder.run()
@@ -116,5 +123,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
+    override fun onItemClicked(activity: Activity) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
 }

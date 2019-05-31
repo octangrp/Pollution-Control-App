@@ -10,8 +10,12 @@
             android:title="@string/menu_home" />
         <item
             android:id="@+id/places"
-            android:icon="@drawable/ic_forest"
+            android:icon="@drawable/ic_wet"
             android:title="@string/places" />
+        <item
+            android:id="@+id/nav_agriculture"
+            android:icon="@drawable/ic_forest"
+            android:title="@string/crops" />
         <item
             android:id="@+id/nav_fight_climate_change"
             android:icon="@drawable/ic_info"

@@ -1,7 +1,6 @@
 package com.rema.pollutioncontrol.adapaters
 
 import android.content.Context
-import android.graphics.Color
 import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -16,18 +15,24 @@ import com.rema.pollutioncontrol.repository.ViewTools
 import java.util.*
 
 
-class ActivityListAdapter(private val activities: ArrayList<Activity>, var context: Context) : RecyclerView.Adapter<ActivityListAdapter.ViewHolder>() {
+class ActivityListAdapter(private val activities: ArrayList<Activity>, var context: Context, val listener: ItemClickListener) : RecyclerView.Adapter<ActivityListAdapter.ViewHolder>() {
 
 
-    class ViewHolder(var linearLayout: LinearLayout) : RecyclerView.ViewHolder(linearLayout) {
+    inner class ViewHolder(var linearLayout: LinearLayout) : RecyclerView.ViewHolder(linearLayout) {
         var icon: ImageView = linearLayout.findViewById<View>(R.id.icon) as ImageView
         var name: TextView = linearLayout.findViewById<View>(R.id.name) as TextView
         var shape: CardView = linearLayout.findViewById(R.id.shape) as CardView
-        var card: CardView = linearLayout.findViewById(R.id.card) as CardView
+        var condition: TextView = linearLayout.findViewById(R.id.condition)
+
+        init {
+            linearLayout.setOnClickListener {
+                listener.onItemClicked(activities[adapterPosition])
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup,
-                                    viewType: Int): ActivityListAdapter.ViewHolder {
+                                    viewType: Int): ViewHolder {
         val linearLayout = LayoutInflater.from(parent.context)
                 .inflate(R.layout.activity_list_item, parent, false) as LinearLayout
 
@@ -54,6 +59,10 @@ class ActivityListAdapter(private val activities: ArrayList<Activity>, var conte
         holder.shape.setCardBackgroundColor(context.resources.getColor(activity.badgeColor()))
         holder.icon.setImageDrawable(context.getDrawable(activity.icon))
         holder.name.text = context.getText(activity.name)
+        holder.condition.text = context.getString(activity.condition())
     }
 
+    interface ItemClickListener {
+        fun onItemClicked(activity: Activity)
+    }
 }

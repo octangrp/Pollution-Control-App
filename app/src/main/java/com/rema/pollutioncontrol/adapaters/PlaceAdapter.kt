@@ -38,14 +38,14 @@ class PlaceAdapter(private val places: ArrayList<Place>, var context: Context) :
 
     override fun onBindViewHolder(view: ViewHolder, position: Int) {
         // get current activity from the list
-        val forest = places[position]
+        val place = places[position]
         val intent = Intent(context,ViewPlaceActivity::class.java)
-        intent.putExtra("place", forest)
+        intent.putExtra("place", place)
         view.linearLayout.setOnClickListener { context.startActivity(intent) }
-        view.thumbnail.setImageDrawable(context.getDrawable(forest.thumbnail))
-        view.temperatureIcon.setImageDrawable(context.getDrawable(forest.weather.icon()))
-        view.title.text = forest.name
-        view.temperature.text = forest.weather.temperatureString()
-        view.windSpeed.text = forest.weather.windSpeedString()
+        view.thumbnail.setImageDrawable(context.getDrawable(place.thumbnail))
+        view.temperatureIcon.setImageDrawable(context.getDrawable(place.weather.icon()))
+        view.title.text = place.name
+        view.temperature.text = place.weather.temperatureString()
+        view.windSpeed.text = place.weather.windSpeedString()
     }
 }

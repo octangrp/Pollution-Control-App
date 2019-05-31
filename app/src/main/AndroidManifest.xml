@@ -9,17 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".controllers.SearchActivity"></activity>
         <activity
-            android:name=".controllers.TabbedActivity"
-            android:label="@string/title_activity_tabbed"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".controllers.ActivityViewActivity"
+            android:label="@string/title_activity_view"></activity>
+        <activity android:name=".controllers.HarvestActivity" />
+        <activity android:name=".controllers.SearchActivity" />
         <activity android:name=".controllers.ViewPlaceActivity" />
         <activity android:name=".controllers.PlacesActivity" />
         <activity android:name=".controllers.FightClimateChangeActivity" />
         <activity
-            android:name=".controllers.ViewCityActivity"
-            android:theme="@style/AppTheme" />
+            android:name=".controllers.ViewCityActivity" />
         <activity android:name=".controllers.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

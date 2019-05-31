@@ -12,16 +12,19 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import com.rema.pollutioncontrol.R
 import com.rema.pollutioncontrol.adapaters.ActivityListAdapter
+import com.rema.pollutioncontrol.controllers.ActivityViewActivity
 import com.rema.pollutioncontrol.controllers.ViewCityActivity
+import com.rema.pollutioncontrol.models.Activity
 import com.rema.pollutioncontrol.models.Location
 import com.rema.pollutioncontrol.models.Weather
 
 /**
  * A placeholder fragment containing a simple view.
  */
-class PlaceholderFragment : Fragment() {
+class PlaceholderFragment : Fragment(), ActivityListAdapter.ItemClickListener {
 
     private lateinit var pageViewModel: PageViewModel
     private lateinit var location: Location
@@ -50,7 +53,7 @@ class PlaceholderFragment : Fragment() {
         val linearLayout = LinearLayoutManager(activity)
         linearLayout.orientation = LinearLayoutManager.HORIZONTAL
         activityRecyclerView.layoutManager = linearLayout
-        val adapter = activity?.applicationContext?.let { ActivityListAdapter(location.activities, it) }
+        val adapter = activity?.applicationContext?.let { ActivityListAdapter(location.activities, it, this) }
         activityRecyclerView.adapter = adapter
         root.findViewById<View>(R.id.weather_icon).visibility = View.VISIBLE
         root.findViewById<View>(R.id.condition).visibility = View.VISIBLE
@@ -92,5 +95,11 @@ class PlaceholderFragment : Fragment() {
                 }
             }
         }
+    }
+
+    override fun onItemClicked(activ: Activity) {
+        val intent = Intent(activity?.applicationContext, ActivityViewActivity::class.java)
+        intent.putExtra("activity",activ)
+        startActivity(intent)
     }
 }

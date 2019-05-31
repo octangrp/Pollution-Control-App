@@ -1,9 +1,8 @@
 <resources>
-    <string name="app_name">Pollution Control</string>
+    <string name="app_name">Drop</string>
     <string name="login">Login</string>
     <string name="weather_forecast">Weather Forecast</string>
-    <string name="bicycle">Bicycle</string>
-    <string name="running">Running</string>
+
     <string name="title_activity_main2">Main2Activity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -47,4 +46,20 @@
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
     <string name="monday">Monday</string>
+
+    <!--Activities-->
+    <string name="cycling">Cycling</string>
+    <string name="running">Running</string>
+    <string name="outdoor">Outdoor</string>
+
+    <string name="activity_condition_good">Good</string>
+    <string name="activity_condition_fair">Fair</string>
+    <string name="activity_condition_bad">Bad</string>
+    <string name="crops">Crops</string>
+    <string name="title_activity_view">ActivityViewActivity</string>
+    <string name="favorable_on">Favorable on:</string>
+    <string name="cycling_description">Cycling, also called biking or bicycling, is the use of bicycles for transport, recreation, exercise or sport. People engaged in cycling are referred to as "cyclists", "bikers", or less commonly, as "bicyclists".</string>
+    <string name="running_description">Also called jogging is a form of trotting or running at a slow or leisurely pace. The main intention is to increase physical fitness with less stress on the body than from faster running but more than walking, or to maintain a steady speed for longer periods of time.</string>
+    <string name="outdoor_description">Also called jogging is a form of trotting or running at a slow or leisurely pace. The main intention is to increase physical fitness with less stress on the body than from faster running but more than walking, or to maintain a steady speed for longer periods of time.</string>
+
 </resources>

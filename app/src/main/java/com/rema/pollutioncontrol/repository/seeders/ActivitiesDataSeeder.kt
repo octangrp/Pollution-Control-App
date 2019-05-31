@@ -7,11 +7,9 @@ import com.rema.pollutioncontrol.models.Weather
 class ActivitiesDataSeeder : Seeder() {
     override fun run(weather: Weather): ArrayList<Activity> {
         val activities = ArrayList<Activity>()
-        activities.add(Activity(R.string.bicycle, R.drawable.cycllng, weather, 2, true))
-        activities.add(Activity(R.string.running, R.drawable.run, weather, 1, false))
-        activities.add(Activity(R.string.bicycle, R.drawable.cycllng, weather, 3, true))
-        activities.add(Activity(R.string.bicycle, R.drawable.run, weather, 4, true))
-        activities.add(Activity(R.string.running, R.drawable.run, weather, 2, true))
+        activities.add(Activity(R.string.cycling, R.drawable.cycllng, weather, R.string.cycling_description,2, true))
+        activities.add(Activity(R.string.running, R.drawable.run, weather, R.string.running_description,1, false))
+        activities.add(Activity(R.string.outdoor, R.drawable.ic_activity_outdoor, weather, R.string.outdoor_description,3, true))
         return activities
     }
 
