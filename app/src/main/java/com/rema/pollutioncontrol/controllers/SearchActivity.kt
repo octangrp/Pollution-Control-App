@@ -1,9 +1,9 @@
 package com.rema.pollutioncontrol.controllers
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.text.TextWatcher
 import android.view.View
 import android.widget.EditText
@@ -28,7 +28,7 @@ class SearchActivity : AppCompatActivity(), SearchAdapter.ItemClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
         val linearLayout = LinearLayoutManager(this)
-        linearLayout.orientation = LinearLayoutManager.VERTICAL
+        linearLayout.orientation = RecyclerView.VERTICAL
         recyclerView = findViewById(R.id.recycler_view)
         recyclerView.layoutManager = linearLayout
         setUpLocations()

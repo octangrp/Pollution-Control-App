@@ -1,8 +1,8 @@
 package com.rema.pollutioncontrol.repository
 
 import android.content.Context
-import android.support.v4.view.GravityCompat
-import android.support.v4.widget.DrawerLayout
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
@@ -28,7 +28,7 @@ class ViewTools {
             view.requestLayout()
         }
 
-        fun setNavigationDrawerToggler(hamMenu: View, drawerLayout: DrawerLayout) {
+        fun setNavigationDrawerToggler(hamMenu: View, drawerLayout: androidx.drawerlayout.widget.DrawerLayout) {
             hamMenu.setOnClickListener {
                 // If the navigation drawer is not open then open it, if its already open then close it.
                 if (!drawerLayout.isDrawerOpen(GravityCompat.START))

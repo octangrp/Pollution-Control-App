@@ -4,7 +4,7 @@ import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -38,7 +38,7 @@ private const val ARG_PARAM1 = "forecasts"
  * create an instance of this fragment.
  *
  */
-class ForecastingLineChartFragment : Fragment(), OnChartGestureListener {
+class ForecastingLineChartFragment : androidx.fragment.app.Fragment(), OnChartGestureListener {
 
 
     private var weatherForecast = ArrayList<Forecast>()

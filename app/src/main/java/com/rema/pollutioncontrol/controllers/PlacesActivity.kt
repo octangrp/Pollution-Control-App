@@ -1,10 +1,10 @@
 package com.rema.pollutioncontrol.controllers
 
 import android.graphics.Color
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.widget.TextView
 import com.github.mikephil.charting.animation.Easing
@@ -31,7 +31,7 @@ class PlacesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
         val linearLayout = LinearLayoutManager(this)
-        linearLayout.orientation = LinearLayoutManager.VERTICAL
+        linearLayout.orientation = RecyclerView.VERTICAL
         recyclerView = findViewById(R.id.recycler_view)
         recyclerView.layoutManager = linearLayout
         (findViewById<View>(R.id.back_button)).setOnClickListener { finish() }

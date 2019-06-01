@@ -1,9 +1,9 @@
 package com.rema.pollutioncontrol.controllers
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.widget.TextView
 import com.rema.pollutioncontrol.R
@@ -24,7 +24,7 @@ class HarvestActivity : AppCompatActivity() {
         findViewById<View>(R.id.back_button).setOnClickListener { finish() }
         findViewById<TextView>(R.id.activity_title).text = getString(R.string.crops)
         val linearLayout = LinearLayoutManager(this)
-        linearLayout.orientation = LinearLayoutManager.VERTICAL
+        linearLayout.orientation = RecyclerView.VERTICAL
         recyclerView = findViewById(R.id.recycler_view)
         recyclerView.layoutManager = linearLayout
 

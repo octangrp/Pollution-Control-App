@@ -1,9 +1,9 @@
 package com.rema.pollutioncontrol.controllers
 
 import android.os.Bundle
-import android.support.v4.app.FragmentTransaction
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.CardView
+import androidx.fragment.app.FragmentTransaction
+import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import android.widget.ImageView
 import android.widget.TextView
 import com.github.mikephil.charting.data.Entry

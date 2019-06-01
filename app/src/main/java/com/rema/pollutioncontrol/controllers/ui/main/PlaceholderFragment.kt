@@ -1,18 +1,16 @@
 package com.rema.pollutioncontrol.controllers.ui.main
 
-import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
+import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.rema.pollutioncontrol.R
 import com.rema.pollutioncontrol.adapaters.ActivityListAdapter
 import com.rema.pollutioncontrol.controllers.ActivityViewActivity
@@ -24,7 +22,7 @@ import com.rema.pollutioncontrol.models.Weather
 /**
  * A placeholder fragment containing a simple view.
  */
-class PlaceholderFragment : Fragment(), ActivityListAdapter.ItemClickListener {
+class PlaceholderFragment : androidx.fragment.app.Fragment(), ActivityListAdapter.ItemClickListener {
 
     private lateinit var pageViewModel: PageViewModel
     private lateinit var location: Location
@@ -51,7 +49,7 @@ class PlaceholderFragment : Fragment(), ActivityListAdapter.ItemClickListener {
 
         val activityRecyclerView: RecyclerView = root.findViewById(R.id.activity_recycler_view)
         val linearLayout = LinearLayoutManager(activity)
-        linearLayout.orientation = LinearLayoutManager.HORIZONTAL
+        linearLayout.orientation = RecyclerView.HORIZONTAL
         activityRecyclerView.layoutManager = linearLayout
         val adapter = activity?.applicationContext?.let { ActivityListAdapter(location.activities, it, this) }
         activityRecyclerView.adapter = adapter

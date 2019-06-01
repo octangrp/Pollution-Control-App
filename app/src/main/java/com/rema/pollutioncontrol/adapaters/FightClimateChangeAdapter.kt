@@ -1,7 +1,7 @@
 package com.rema.pollutioncontrol.adapaters
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,10 +9,10 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import com.rema.pollutioncontrol.R
 
-class FightClimateChangeAdapter(private val arrayList: ArrayList<String>, var context: Context) : RecyclerView.Adapter<FightClimateChangeAdapter.ViewHolder>() {
+class FightClimateChangeAdapter(private val arrayList: ArrayList<String>, var context: Context) : androidx.recyclerview.widget.RecyclerView.Adapter<FightClimateChangeAdapter.ViewHolder>() {
 
 
-    class ViewHolder(linearLayout: LinearLayout) : RecyclerView.ViewHolder(linearLayout) {
+    class ViewHolder(linearLayout: LinearLayout) : androidx.recyclerview.widget.RecyclerView.ViewHolder(linearLayout) {
         var number: TextView = linearLayout.findViewById<View>(R.id.card_number) as TextView
         var body: TextView = linearLayout.findViewById<View>(R.id.card_body) as TextView
     }

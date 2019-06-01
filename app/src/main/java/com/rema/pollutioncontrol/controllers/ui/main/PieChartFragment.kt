@@ -3,8 +3,8 @@ package com.rema.pollutioncontrol.controllers.ui.main
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.content.res.ResourcesCompat
+import androidx.fragment.app.Fragment
+import androidx.core.content.res.ResourcesCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,7 +28,7 @@ private const val ARG_PARAM1 = "AirQualityIndex"
  * create an instance of this fragment.
  *
  */
-class PieChartFragment : Fragment() {
+class PieChartFragment : androidx.fragment.app.Fragment() {
     lateinit var chart: PieChart
     var qualityIndex: AirQualityIndex? = null
 

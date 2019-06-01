@@ -1,8 +1,8 @@
 package com.rema.pollutioncontrol.controllers
 
 import android.os.Bundle
-import android.support.v4.app.FragmentTransaction
-import android.support.v7.app.AppCompatActivity
+import androidx.fragment.app.FragmentTransaction
+import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -20,7 +20,6 @@ import kotlin.collections.ArrayList
 
 
 class ViewCityActivity : AppCompatActivity(), ForecastingLineChartFragment.OnFragmentInteractionListener {
-
 
 
     lateinit var location: Location
@@ -44,6 +43,15 @@ class ViewCityActivity : AppCompatActivity(), ForecastingLineChartFragment.OnFra
         fragmentTransaction.replace(R.id.forecasting_container, ForecastingLineChartFragment.newInstance(weatherForecast))
         location.weather?.qualityIndex?.let { pieChartFragment = PieChartFragment.newInstance(it) }?.let { fragmentTransaction.replace(R.id.pie_chart_container, pieChartFragment) }
         fragmentTransaction.commit()
+        showCurrentLocationPin()
+    }
+
+    private fun showCurrentLocationPin() {
+        if (location.isCurrent) {
+            val activityTitleIcon: ImageView = findViewById(R.id.activity_title_icon)
+            activityTitleIcon.setImageDrawable(getDrawable(R.drawable.ic_location))
+            activityTitleIcon.visibility = View.VISIBLE
+        }
     }
 
     private fun displayWeather(location: Location) {

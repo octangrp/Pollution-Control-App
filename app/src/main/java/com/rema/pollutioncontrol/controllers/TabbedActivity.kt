@@ -1,8 +1,8 @@
 package com.rema.pollutioncontrol.controllers
 
 import android.os.Bundle
-import android.support.v4.view.ViewPager
-import android.support.v7.app.AppCompatActivity
+import androidx.viewpager.widget.ViewPager
+import androidx.appcompat.app.AppCompatActivity
 import com.rema.pollutioncontrol.R
 import com.rema.pollutioncontrol.controllers.ui.main.SectionsPagerAdapter
 import com.rema.pollutioncontrol.models.AirQualityIndex

@@ -2,7 +2,7 @@ package com.rema.pollutioncontrol.adapaters
 
 import android.content.Context
 import android.content.Intent
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,10 +14,10 @@ import com.rema.pollutioncontrol.controllers.ViewPlaceActivity
 import com.rema.pollutioncontrol.models.Place
 import java.util.*
 
-class PlaceAdapter(private val places: ArrayList<Place>, var context: Context) : RecyclerView.Adapter<PlaceAdapter.ViewHolder>() {
+class PlaceAdapter(private val places: ArrayList<Place>, var context: Context) : androidx.recyclerview.widget.RecyclerView.Adapter<PlaceAdapter.ViewHolder>() {
 
 
-    class ViewHolder(var linearLayout: LinearLayout) : RecyclerView.ViewHolder(linearLayout) {
+    class ViewHolder(var linearLayout: LinearLayout) : androidx.recyclerview.widget.RecyclerView.ViewHolder(linearLayout) {
         var thumbnail: ImageView = linearLayout.findViewById<View>(R.id.card_image) as ImageView
         var temperatureIcon: ImageView = linearLayout.findViewById<View>(R.id.temperature_icon) as ImageView
         var title: TextView = linearLayout.findViewById<View>(R.id.card_title) as TextView

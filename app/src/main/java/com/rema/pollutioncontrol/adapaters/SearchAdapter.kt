@@ -1,7 +1,7 @@
 package com.rema.pollutioncontrol.adapaters
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,14 +15,14 @@ import java.util.*
 import android.text.method.TextKeyListener.clear
 
 
-class SearchAdapter(private val locations: ArrayList<Location>, var context: Context, val listener: ItemClickListener) : RecyclerView.Adapter<SearchAdapter.ViewHolder>(), Filterable {
+class SearchAdapter(private val locations: ArrayList<Location>, var context: Context, val listener: ItemClickListener) : androidx.recyclerview.widget.RecyclerView.Adapter<SearchAdapter.ViewHolder>(), Filterable {
     private var results = ArrayList<Location>()
 
     init {
         results = locations
     }
 
-    inner class ViewHolder(linearLayout: LinearLayout) : RecyclerView.ViewHolder(linearLayout) {
+    inner class ViewHolder(linearLayout: LinearLayout) : androidx.recyclerview.widget.RecyclerView.ViewHolder(linearLayout) {
         var title: TextView = linearLayout.findViewById<View>(R.id.place_name) as TextView
         var provinceName: TextView = linearLayout.findViewById<View>(R.id.place_province) as TextView
 
