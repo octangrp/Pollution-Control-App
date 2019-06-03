@@ -66,9 +66,9 @@ class ViewCityActivity : AppCompatActivity(), ForecastingLineChartFragment.OnFra
     private fun displayWeatherDetails(weather: Weather) {
         (findViewById<TextView>(R.id.aqi_index)).text = weather.qualityIndex.toString()
         (findViewById<TextView>(R.id.humidity)).text = weather.humidityString()
-        (findViewById<TextView>(R.id.temperature)).text = weather.temperatureString()
+        (findViewById<TextView>(R.id.temperature)).text = weather.temperatureString(this)
         (findViewById<ImageView>(R.id.temperature_icon)).setImageDrawable(getDrawable(weather.icon()))
-        (findViewById<TextView>(R.id.wind_speed)).text = weather.windSpeedString()
+        (findViewById<TextView>(R.id.wind_speed)).text = weather.windSpeedString(this)
     }
 
     private fun hideUnusedFields() {
@@ -90,7 +90,7 @@ class ViewCityActivity : AppCompatActivity(), ForecastingLineChartFragment.OnFra
     fun updateQualityIndex(index: Int) {
         val qualityIndex = AirQualityIndex(index)
         airQualityIndex = qualityIndex.percent()
-        pollutionCondition = qualityIndex.condition()
+        pollutionCondition = getString(qualityIndex.conditionStringId())
         pollutionConditionColor = qualityIndex.conditionColor()
     }
 

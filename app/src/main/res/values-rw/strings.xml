@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Drop</string>
+    <string name="action_settings">Igenamiterere</string>
+    <string name="bad">Nabi</string>
+    <string name="fair">Mukigero</string>
+    <string name="good">Neza</string>
+    <string name="crops">Ubuhinzi</string>
+    <string name="fight_climate_change">Ihinduka ry\' ibihe</string>
+    <string name="general_header">Rusange</string>
+    <string name="humidity">Ubukonje</string>
+    <string name="title_activity_settings">Igenamiterere</string>
+    <string name="temperature">Ubushyuye</string>
+    <string name="temperature_unit_title">Igipimo cy\' ubushyuhe</string>
+    <string name="settings">Igenamiterere</string>
+    <string name="running">Kwiruka</string>
+    <string name="places">Ahantu</string>
+    <string name="favorable_on">Bibereye</string>
+    <string name="languages">Ururimi</string>
+    <string name="menu_home">Ahabanza</string>
+    <string name="wind_speed_unit">Igipimo cy\'umuvuduko w\'umuyaga</string>
+    <string name="wind_speed">Umuyaga</string>
+    <string name="cycling">Igare</string>
+    <string name="outdoor">Kuba hanze</string>
+    <string name="kilometers_per_hour">Ibirometero kw\' isaha</string>
+    <string name="mile_per_hour">Milo kw\'isaha</string>
+    <string name="beans">Ibishyimbo</string>
+    <string name="sweet_potatoes">Ibijumba</string>
+    <string name="potatoes">Ibirayi</string>
+    <string name="bananas">Ibitoki</string>
+    <string name="excellent">Neza Cyane</string>
+    <string name="heavy">Bikomeye</string>
+    <string name="light">Yoroheje</string>
+    <string name="moderate">Iringaniye</string>
+    <string name="severe">Ikabije</string>
+    <string name="weather_sunny">Izuba</string>
+    <string name="weather_raining">Imvura</string>
+    <string name="weather_cloudy">Ibicu</string>
+    <string name="weather_forecast">Iteganya gihe</string>
+    <string name="akagera_name">Parike y\' Akagera</string>
+    <string name="nyungwe_park">Parike ya Nyungwe</string>
+    <string name="volcanoes_park_name">Parike y\' ibirunga</string>
+</resources>

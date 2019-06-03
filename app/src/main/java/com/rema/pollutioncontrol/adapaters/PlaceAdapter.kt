@@ -45,7 +45,7 @@ class PlaceAdapter(private val places: ArrayList<Place>, var context: Context) :
         view.thumbnail.setImageDrawable(context.getDrawable(place.thumbnail))
         view.temperatureIcon.setImageDrawable(context.getDrawable(place.weather.icon()))
         view.title.text = place.name
-        view.temperature.text = place.weather.temperatureString()
-        view.windSpeed.text = place.weather.windSpeedString()
+        view.temperature.text = place.weather.temperatureString(context)
+        view.windSpeed.text = place.weather.windSpeedString(context)
     }
 }

@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import com.rema.pollutioncontrol.R
 import com.rema.pollutioncontrol.models.Activity
 import com.rema.pollutioncontrol.repository.ViewTools

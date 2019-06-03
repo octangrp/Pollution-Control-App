@@ -1,17 +1,16 @@
-package com.rema.pollutioncontrol.repository
+package com.rema.pollutioncontrol.repository.prefs
 
 import android.content.Context
-import android.widget.Toast
 
 import com.google.gson.Gson
 import com.rema.pollutioncontrol.models.Location
 import com.google.gson.reflect.TypeToken
 
 
-class LocationListPrefs(var context: Context) : Prefs(context) {
-    private val key = "LOCATION_LIST_PREFS"
+class LocationListPrefs(var context: Context) : SharedPrefs(context) {
+    override var key = "LOCATION_LIST_PREFS"
     fun getList(): ArrayList<Location> {
-        val json = get(key, Gson().toJson(ArrayList<Location>()))
+        val json = get(Gson().toJson(ArrayList<Location>()))
         return Gson().fromJson<ArrayList<Location>>(json, object : TypeToken<ArrayList<Location>>() {
         }.type)
     }
@@ -20,7 +19,7 @@ class LocationListPrefs(var context: Context) : Prefs(context) {
         val arrayList = getList()
         if (!isAlreadySaved(arrayList, location)) {
             arrayList.add(location)
-            save(key, Gson().toJson(arrayList))
+            save(Gson().toJson(arrayList))
             return
         }
     }

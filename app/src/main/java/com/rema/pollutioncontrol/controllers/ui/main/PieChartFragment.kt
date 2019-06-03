@@ -93,7 +93,7 @@ class PieChartFragment : androidx.fragment.app.Fragment() {
         // chart.setDrawUnitsInChart(true);
 
 
-       chart.centerText = qualityIndex?.condition() ?: "---"
+        chart.centerText = activity!!.getString(qualityIndex?.conditionStringId() ?: R.string.none)
         chart.setCenterTextTypeface(typeface)
         chart.holeRadius = 67f
         chart.transparentCircleRadius = 67f
@@ -108,14 +108,14 @@ class PieChartFragment : androidx.fragment.app.Fragment() {
         // entry label styling
         chart.setEntryLabelColor(Color.WHITE)
         chart.setDrawEntryLabels(false)
-       chart.data = this.setUpChartData()
+        chart.data = this.setUpChartData()
         chart.maxAngle = 180f
     }
 
 
     fun updateChart(airQualityIndex: AirQualityIndex) {
         qualityIndex = airQualityIndex
-        chart.centerText = airQualityIndex.condition()
+        chart.centerText = activity!!.getString(airQualityIndex.conditionStringId())
         chart.data = setUpChartData()
         chart.notifyDataSetChanged()
         chart.invalidate()

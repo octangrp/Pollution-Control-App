@@ -1,0 +1,33 @@
+<resources>
+    <!-- Languages Preference -->
+    <string-array name="languages">
+        <item>English</item>
+        <item>Français</item>
+        <item>Kinyarwanda</item>
+    </string-array>
+
+    <string-array name="languages_values">
+        <item>en</item>
+        <item>fr</item>
+        <item>rw</item>
+    </string-array>
+
+    <!-- Languages Preference -->
+    <string-array name="temperature_units">
+        <item>Celsius</item>
+        <item>Fahrenheit</item>
+    </string-array>
+    <string-array name="temperature_unit_values">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <!-- Languages Preference -->
+    <string-array name="wind_speed_units">
+        <item>@string/kilometers_per_hour</item>
+        <item>@string/mile_per_hour</item>
+    </string-array>
+    <string-array name="wind_speed_unit_values">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+</resources>

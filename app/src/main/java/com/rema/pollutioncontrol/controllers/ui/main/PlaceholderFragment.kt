@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,6 +19,7 @@ import com.rema.pollutioncontrol.controllers.ViewCityActivity
 import com.rema.pollutioncontrol.models.Activity
 import com.rema.pollutioncontrol.models.Location
 import com.rema.pollutioncontrol.models.Weather
+import com.rema.pollutioncontrol.repository.prefs.LanguagePrefs
 
 /**
  * A placeholder fragment containing a simple view.
@@ -40,8 +42,8 @@ class PlaceholderFragment : androidx.fragment.app.Fragment(), ActivityListAdapte
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_tabbed, container, false)
 
+        val root = inflater.inflate(R.layout.fragment_tabbed, container, false)
         val mainView = root.findViewById<LinearLayout>(R.id.main_view)
         val intent = Intent(activity, ViewCityActivity::class.java)
         intent.putExtra("location", this.location)
@@ -51,24 +53,23 @@ class PlaceholderFragment : androidx.fragment.app.Fragment(), ActivityListAdapte
         val linearLayout = LinearLayoutManager(activity)
         linearLayout.orientation = RecyclerView.HORIZONTAL
         activityRecyclerView.layoutManager = linearLayout
-        val adapter = activity?.applicationContext?.let { ActivityListAdapter(location.activities, it, this) }
+        val adapter = activity?.let { ActivityListAdapter(location.activities, it, this) }
         activityRecyclerView.adapter = adapter
         root.findViewById<View>(R.id.weather_icon).visibility = View.VISIBLE
         root.findViewById<View>(R.id.condition).visibility = View.VISIBLE
         location.weather?.let { displayData(root, it) }
+
         return root
     }
 
     private fun displayData(root: View, weather: Weather) {
-
         root.findViewById<ImageView>(R.id.weather_icon).setImageDrawable(activity?.getDrawable(weather.qualityIndex.icon()))
-        root.findViewById<TextView>(R.id.condition).text = weather.qualityIndex.condition()
+        root.findViewById<TextView>(R.id.condition).text = activity!!.getString(weather.qualityIndex.conditionStringId())
         root.findViewById<TextView>(R.id.aqi_index).text = weather.qualityIndex.toString()
         root.findViewById<TextView>(R.id.humidity).text = weather.humidityString()
-        root.findViewById<TextView>(R.id.temperature).text = weather.temperatureString()
-        root.findViewById<TextView>(R.id.wind_speed).text = weather.windSpeedString()
+        root.findViewById<TextView>(R.id.temperature).text = activity?.let { weather.temperatureString(it) }
+        root.findViewById<TextView>(R.id.wind_speed).text = activity?.let { weather.windSpeedString(it) }
         root.findViewById<ImageView>(R.id.temperature_icon).setImageDrawable(activity?.getDrawable(weather.icon()))
-
     }
 
 
@@ -97,7 +98,7 @@ class PlaceholderFragment : androidx.fragment.app.Fragment(), ActivityListAdapte
 
     override fun onItemClicked(activ: Activity) {
         val intent = Intent(activity?.applicationContext, ActivityViewActivity::class.java)
-        intent.putExtra("activity",activ)
+        intent.putExtra("activity", activ)
         startActivity(intent)
     }
 }

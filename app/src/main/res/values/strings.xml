@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Drop</string>
+    <string name="app_name">Igicu</string>
     <string name="login">Login</string>
     <string name="weather_forecast">Weather Forecast</string>
 
@@ -24,15 +24,28 @@
     <string name="protected_non_areas"><![CDATA[Protected & non areas]]></string>
     <string name="fight_climate_change">Fight climate change</string>
     <string name="parks">Parks</string>
-    <string name="faq">FAQ</string>
+    <string name="faq" translatable="false">FAQ</string>
     <string name="settings">Settings</string>
     <string name="title_activity_view_city">ViewCity</string>
     <string name="wind_speed_icon">Wind Speed Icon</string>
     <string name="title_activity_scrolling">ScrollingActivity</string>
-    <string name="nyungwe_description">"Tucked away in the middle of tea Plantations, the biggest mountain rain forest on this side of the African continent can be a bit deceptive in its vastness if you simply catch a glimpse of it from a far.\n\n Nyungwe forest is probably the most preserved forest in Africa. Some say it is the most important site for biodiversity in Rwanda. It is home to over 1000 species of creation after all."</string>
+
+
+    <string name="nyungwe_park">Nyungwe National Park</string>
+    <string name="nyungwe_description" translatable="false">"Tucked away in the middle of tea Plantations, the biggest mountain rain forest on this side of the African continent can be a bit deceptive in its vastness if you simply catch a glimpse of it from a far.\n\n Nyungwe forest is probably the most preserved forest in Africa. Some say it is the most important site for biodiversity in Rwanda. It is home to over 1000 species of creation after all."</string>
+
     <string name="large_text">
         "Gishwati    Possibly the most of data visualizations, a timeline tracks data over a time period.Possibly the most self-explanatory.\n\n Gishwati    Possibly the most of data visualizations, a timeline tracks data over a time period.Possibly the most self-explanatory.\n\n"
     </string>
+
+    <string name="akagera_name">Akagera National Park</string>
+    <string name="akagera_description" translatable="false">"Akagera National Park lies in eastern Rwanda, hugging the border with Tanzania. It's characterized by woodland, swamps, low mountains and savannah. The varied terrain shelters wildlife including zebras, giraffes, elephants, lions and hundreds of bird species, such as the rare shoebill stork. In the southern part of the park, vast Lake Ihema is home to hippos and crocodiles."</string>
+
+
+    <string name="volcanoes_park_name">Volcanoes National Park</string>
+    <string name="volcanoes_park_description" translatable="false">"Volcanoes National Park lies in northwestern Rwanda and borders Virunga National Park in the Democratic Republic of Congo and Mgahinga Gorilla National Park in Uganda. The national park is known as a haven for the rare and endangered mountain gorilla and golden monkeys."</string>
+
+
     <string name="humidity">Humidity</string>
     <string name="temperature">Temperature</string>
     <string name="wind_speed">Wind Speed</string>
@@ -52,14 +65,45 @@
     <string name="running">Running</string>
     <string name="outdoor">Outdoor</string>
 
-    <string name="activity_condition_good">Good</string>
-    <string name="activity_condition_fair">Fair</string>
-    <string name="activity_condition_bad">Bad</string>
-    <string name="crops">Crops</string>
+    <string name="good">Good</string>
+    <string name="fair">Fair</string>
+    <string name="bad">Bad</string>
+    <string name="crops">Agriculture</string>
     <string name="title_activity_view">ActivityViewActivity</string>
     <string name="favorable_on">Favorable on:</string>
-    <string name="cycling_description">Cycling, also called biking or bicycling, is the use of bicycles for transport, recreation, exercise or sport. People engaged in cycling are referred to as "cyclists", "bikers", or less commonly, as "bicyclists".</string>
-    <string name="running_description">Also called jogging is a form of trotting or running at a slow or leisurely pace. The main intention is to increase physical fitness with less stress on the body than from faster running but more than walking, or to maintain a steady speed for longer periods of time.</string>
-    <string name="outdoor_description">Also called jogging is a form of trotting or running at a slow or leisurely pace. The main intention is to increase physical fitness with less stress on the body than from faster running but more than walking, or to maintain a steady speed for longer periods of time.</string>
+    <string name="cycling_description" translatable="false">Cycling, also called biking or bicycling, is the use of bicycles for transport, recreation, exercise or sport. People engaged in cycling are referred to as "cyclists", "bikers", or less commonly, as "bicyclists".</string>
+    <string name="running_description" translatable="false">Also called jogging is a form of trotting or running at a slow or leisurely pace. The main intention is to increase physical fitness with less stress on the body than from faster running but more than walking, or to maintain a steady speed for longer periods of time.</string>
+    <string name="outdoor_description" translatable="false">Outdoor recreation or outdoor activity refers to recreation engaged in out of doors, most commonly in natural settings. The activities themselves — such as fishing, hunting, backpacking, and horseback riding — characteristically determine where they are practiced.</string>
     <string name="activity_title_icon">Activity Title Icon</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Preference Titles -->
+    <string name="general_header">General</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Preferences -->
+    <string name="temperature_unit_title">Temperature Unit</string>
+    <string name="languages">Language</string>
+    <string name="wind_speed_unit">Wind Speed Unit</string>
+    <string name="kilometers_per_hour">Kilometers per hour</string>
+    <string name="mile_per_hour">Mile per hour</string>
+    <string name="potatoes">Potatoes</string>
+    <string name="sweet_potatoes">Sweet Potatoes</string>
+    <string name="bananas">Bananas</string>
+    <string name="beans">beans</string>
+    <string name="excellent">Excellent</string>
+    <string name="light">Light</string>
+    <string name="moderate">Moderate</string>
+    <string name="heavy">Heavy</string>
+    <string name="severe">Severe</string>
+    <string name="none" translatable="false">....</string>
+    <string name="fight_climate_change_1" translatable="false">"Reduce emissions \n\n Use your car less, whenever possible, instead use sustainable transportation, such as bicycling, or use public transportation more often. In the case of long-distance travel, trains are more sustainable than airplanes, which cause a great deal of the CO2 emitted into the atmosphere. If you're into cars, remember that every kilometer that you increase your speed will considerably increase CO2 emissions and expenses. According to the CE, each liter of fuel that your car uses, equals 2.5 kilos of CO2 emitted into the atmosphere"</string>
+    <string name="fight_climate_change_2" translatable="false">"Save energy  \n\n Take a look at the labels on your appliances, and never leave them on standby. Always adjust the thermostat for heating and air conditioning. By being careful how we use home appliances, we can save energy and, of course, money at the end of the month."</string>
+    <string name="fight_climate_change_3" translatable="false">"Recycle \n\n Packaging, waste from electronics, etc. Did you know that you can save over 730 kilos of CO2 each year just by recycling half of the garbage produced at home?"</string>
+    <string name="sweet_potato_description" translatable="false">Sweet potato is a plant that belongs to the morning glory family, it\'s large and sweet tasting. the sweet potato is only distantly related to the potato</string>
+    <string name="potato_description" translatable="false">The potato is a starchy, tuberous crop from the perennial nightshade Solanum tuberosum. In many contexts, potato refers to the edible tuber, but it can also refer to the plant itself. Common or slang terms include tater, tattie and spud.</string>
+    <string name="bananas_description" translatable="false">A banana is an edible fruit – botanically a berry – produced by several kinds of large herbaceous flowering plants in the genus Musa. In some countries, bananas used for cooking may be called \"plantains\", distinguishing them from dessert bananas.</string>
+    <string name="beans_description">A bean is a seed of one of several genera of the flowering plant family Fabaceae, which are used for human or animal food.</string>
+
+
 </resources>

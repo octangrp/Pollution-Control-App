@@ -9,14 +9,9 @@ import android.view.View
 import android.widget.EditText
 import com.rema.pollutioncontrol.R
 import android.text.Editable
-import android.widget.ArrayAdapter
-import android.widget.ListView
-import android.widget.Toast
-import com.rema.pollutioncontrol.adapaters.PlaceAdapter
 import com.rema.pollutioncontrol.adapaters.SearchAdapter
 import com.rema.pollutioncontrol.models.Location
-import com.rema.pollutioncontrol.repository.LocationListPrefs
-import com.rema.pollutioncontrol.repository.Prefs
+import com.rema.pollutioncontrol.repository.prefs.LocationListPrefs
 
 
 class SearchActivity : AppCompatActivity(), SearchAdapter.ItemClickListener {

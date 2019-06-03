@@ -28,17 +28,8 @@ class FightClimateChangeActivity : AppCompatActivity() {
     }
 
     private fun initializeList() {
-        itemList.add("Possibly the most of data \n" +
-                "visualizations, a timeline tracks \n" +
-                "data over a time period.Possibly\n" +
-                " the most self-explanatory.")
-        itemList.add("Possibly the most of data \n" +
-                "visualizations, a timeline tracks \n" +
-                "data over a time period.Possibly\n" +
-                " the most self-explanatory.")
-        itemList.add("Possibly the most of data \n" +
-                "visualizations, a timeline tracks \n" +
-                "data over a time period.Possibly\n" +
-                " the most self-explanatory.")
+        itemList.add(getString(R.string.fight_climate_change_1))
+        itemList.add(getString(R.string.fight_climate_change_2))
+        itemList.add(getString(R.string.fight_climate_change_3))
     }
 }

@@ -29,7 +29,7 @@ class ViewPlaceActivity : AppCompatActivity(), ForecastingLineChartFragment.OnFr
         (findViewById<TextView>(R.id.forest_name)).text = place.name
         displayWeatherDetails(place.weather)
         weatherForecast.add(Forecast(DateTime(), place.weather))
-        (findViewById<TextView>(R.id.main_temperature)).text = place.weather.temperatureString()
+        (findViewById<TextView>(R.id.main_temperature)).text = place.weather.temperatureString(this)
         (findViewById<TextView>(R.id.weather_condition)).text = getString(place.weather.conditionStringResource())
         (findViewById<TextView>(R.id.forest_description)).text = place.description
         weatherForecast.addAll(ForecastingDataSeeder.run(this))
@@ -39,9 +39,9 @@ class ViewPlaceActivity : AppCompatActivity(), ForecastingLineChartFragment.OnFr
     }
 
     private fun displayWeatherDetails(weather: Weather) {
-        (findViewById<TextView>(R.id.temperature)).text = weather.temperatureString()
+        (findViewById<TextView>(R.id.temperature)).text = weather.temperatureString(this)
         (findViewById<TextView>(R.id.humidity)).text = weather.humidityString()
-        (findViewById<TextView>(R.id.wind_speed)).text = weather.windSpeedString()
+        (findViewById<TextView>(R.id.wind_speed)).text = weather.windSpeedString(this)
         (findViewById<ImageView>(R.id.temperature_icon)).setImageDrawable(getDrawable(weather.icon()))
     }
 

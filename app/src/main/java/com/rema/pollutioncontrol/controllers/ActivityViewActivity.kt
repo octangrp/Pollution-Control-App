@@ -37,8 +37,8 @@ class ActivityViewActivity : AppCompatActivity(), ForecastingLineChartFragment.O
         findViewById<TextView>(R.id.activity_name).text = getString(activity.name)
         updateCondition()
         findViewById<TextView>(R.id.humidity).text = activity.weather.humidityString()
-        findViewById<TextView>(R.id.temperature).text = activity.weather.temperatureString()
-        findViewById<TextView>(R.id.wind_speed).text = activity.weather.windSpeedString()
+        findViewById<TextView>(R.id.temperature).text = activity.weather.temperatureString(this)
+        findViewById<TextView>(R.id.wind_speed).text = activity.weather.windSpeedString(this)
 
         findViewById<TextView>(R.id.description).text = getString(activity.description)
     }

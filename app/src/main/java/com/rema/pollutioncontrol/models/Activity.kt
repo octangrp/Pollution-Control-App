@@ -1,10 +1,7 @@
 package com.rema.pollutioncontrol.models
 
-import android.graphics.drawable.Drawable
-import android.util.EventLogTags
 import com.rema.pollutioncontrol.R
 import java.io.Serializable
-import kotlin.math.roundToInt
 
 class Activity(var name: Int, var icon: Int, var weather: Weather, var description: Int, var sensitivity: Int = 1, var allowsBadWeather: Boolean = false) : Serializable {
 
@@ -55,9 +52,9 @@ class Activity(var name: Int, var icon: Int, var weather: Weather, var descripti
 
     fun condition(): Int {
         return when {
-            isFavorable() -> R.string.activity_condition_good
-            isFailyFavorable() -> R.string.activity_condition_fair
-            else -> R.string.activity_condition_bad
+            isFavorable() -> R.string.good
+            isFailyFavorable() -> R.string.fair
+            else -> R.string.bad
         }
     }
 

@@ -46,7 +46,7 @@ class PlacesActivity : AppCompatActivity() {
         placeList.add(Place(
                 R.drawable.forest_nyungwe_thumb,
                 R.drawable.forest_nyungwe_main,
-                "Nyungwe Park",
+                getString(R.string.nyungwe_park),
                 Weather(
                         AirQualityIndex(10),
                         45.0,
@@ -59,27 +59,27 @@ class PlacesActivity : AppCompatActivity() {
         placeList.add(Place(
                 R.drawable.forest_gishwati_thumb,
                 R.drawable.forest_gishwati_main,
-                "Gishwati Forest",
+                getString(R.string.akagera_name),
                 Weather(
                         AirQualityIndex(10),
                         45.0,
                         23.0,
                         112.0,
                         2
-                ), getString(R.string.large_text)
+                ), getString(R.string.akagera_description)
         )
         )
         placeList.add(Place(
                 R.drawable.forest_bisoke_thumb,
                 R.drawable.forest_bisoke_main,
-                "Bisoke Forest",
+                getString(R.string.volcanoes_park_name),
                 Weather(
                         AirQualityIndex(10),
                         60.0,
                         16.0,
                         96.0,
                         3
-                ), getString(R.string.large_text)
+                ), getString(R.string.volcanoes_park_description)
         )
         )
     }

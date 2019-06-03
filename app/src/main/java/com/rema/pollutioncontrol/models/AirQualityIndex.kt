@@ -3,7 +3,6 @@ package com.rema.pollutioncontrol.models
 import android.graphics.Color
 import com.rema.pollutioncontrol.R
 import java.io.Serializable
-import kotlin.math.roundToInt
 
 class AirQualityIndex(var index: Int) : Serializable {
 
@@ -19,15 +18,15 @@ class AirQualityIndex(var index: Int) : Serializable {
         return 0
     }
 
-    fun condition(): String {
+    fun conditionStringId(): Int {
         return when {
-            level() == 1 -> "Excellent"
-            level() == 2 -> "Good"
-            level() == 3 -> "Light"
-            level() == 4 -> "Moderate"
-            level() == 5 -> "Heavy"
-            level() == 6 -> "Severe"
-            else -> "...."
+            level() == 1 -> R.string.excellent
+            level() == 2 -> R.string.good
+            level() == 3 -> R.string.light
+            level() == 4 -> R.string.moderate
+            level() == 5 -> R.string.heavy
+            level() == 6 -> R.string.severe
+            else -> R.string.none
         }
     }
 

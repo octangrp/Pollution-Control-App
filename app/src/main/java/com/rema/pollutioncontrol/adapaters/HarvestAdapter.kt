@@ -40,9 +40,9 @@ class HarvestAdapter(private val harvests: ArrayList<Harvest>, var context: Cont
     override fun onBindViewHolder(view: ViewHolder, position: Int) {
         // get current activity from the list
         val harvest = harvests[position]
-        view.title.text = harvest.name
+        view.title.text = context.getString(harvest.name)
         view.icon.setImageDrawable(context.getDrawable(harvest.icon))
-        view.temperature.text = harvest.weather.temperatureString()
+        view.temperature.text = harvest.weather.temperatureString(context)
         view.temperatureIcon.setImageDrawable(context.getDrawable(harvest.weather.icon()))
         view.humidity.text = harvest.weather.humidityString()
         var locationString = ""

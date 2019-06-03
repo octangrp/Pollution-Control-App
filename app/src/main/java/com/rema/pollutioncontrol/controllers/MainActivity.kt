@@ -12,15 +12,15 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import com.rema.pollutioncontrol.R
 import com.rema.pollutioncontrol.adapaters.ActivityListAdapter
 import com.rema.pollutioncontrol.controllers.ui.main.SectionsPagerAdapter
 import com.rema.pollutioncontrol.models.Activity
-import com.rema.pollutioncontrol.models.AirQualityIndex
 import com.rema.pollutioncontrol.models.Location
-import com.rema.pollutioncontrol.models.Weather
-import com.rema.pollutioncontrol.repository.LocationListPrefs
+import com.rema.pollutioncontrol.repository.prefs.LocationListPrefs
 import com.rema.pollutioncontrol.repository.ViewTools
+import com.rema.pollutioncontrol.repository.prefs.LanguagePrefs
 import com.rema.pollutioncontrol.repository.seeders.WeatherSeeder
 
 
@@ -31,12 +31,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     lateinit var activityTitle: TextView
     lateinit var sectionsPagerAdapter: SectionsPagerAdapter
     lateinit var viewPager: ViewPager
+    var lastLanguage: String = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        this.setupData()
         activityTitle = findViewById(R.id.activity_title)
         locationPin = findViewById(R.id.current_location_pin)
+        lastLanguage = LanguagePrefs(this).getLanguage()
+        this.setupData()
         sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager, locations)
         viewPager = findViewById(R.id.view_pager)
         viewPager.adapter = sectionsPagerAdapter
@@ -64,6 +67,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         navView.setNavigationItemSelectedListener(this)
         ViewTools.setNavigationDrawerToggler(hamMenu, drawerLayout)
         (findViewById<ImageView>(R.id.ham_menu_add)).setOnClickListener { startActivity(Intent(this, SearchActivity::class.java)) }
+
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        LanguagePrefs(this).setLanguage {
+            recreate()
+        }
     }
 
     private fun toggleLocationPin(location: Location) {
@@ -76,6 +88,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onResume() {
         super.onResume()
+        if (lastLanguage != LanguagePrefs(this).getLanguage()) {
+            lastLanguage = LanguagePrefs(this).getLanguage()
+            recreate()
+        }
         this.setupData()
         sectionsPagerAdapter.locations = locations
         sectionsPagerAdapter.notifyDataSetChanged()
@@ -105,6 +121,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.nav_agriculture -> {
                 startActivity(Intent(this, HarvestActivity::class.java))
+            }
+            R.id.settings -> {
+                startActivity(Intent(this, SettingsActivity::class.java))
             }
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
