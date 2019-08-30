@@ -16,13 +16,13 @@ import com.rema.pollutioncontrol.repository.ViewTools
 import java.util.*
 
 
-class ActivityListAdapter(private val activities: ArrayList<Activity>, var context: Context, val listener: ItemClickListener) : androidx.recyclerview.widget.RecyclerView.Adapter<ActivityListAdapter.ViewHolder>() {
+class ActivityListAdapter(private val activities: ArrayList<Activity>, var context: Context, val listener: ItemClickListener) : RecyclerView.Adapter<ActivityListAdapter.ViewHolder>() {
 
 
-    inner class ViewHolder(var linearLayout: LinearLayout) : androidx.recyclerview.widget.RecyclerView.ViewHolder(linearLayout) {
+    inner class ViewHolder(var linearLayout: LinearLayout) : RecyclerView.ViewHolder(linearLayout) {
         var icon: ImageView = linearLayout.findViewById<View>(R.id.icon) as ImageView
         var name: TextView = linearLayout.findViewById<View>(R.id.name) as TextView
-        var shape: androidx.cardview.widget.CardView = linearLayout.findViewById(R.id.shape) as androidx.cardview.widget.CardView
+        var shape: CardView = linearLayout.findViewById(R.id.shape) as CardView
         var condition: TextView = linearLayout.findViewById(R.id.condition)
 
         init {
